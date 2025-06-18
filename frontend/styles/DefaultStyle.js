@@ -5,8 +5,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#497a56',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',  // top vertically
+    salignItems: 'flex-end',  
     width: '100%',
   },
 });

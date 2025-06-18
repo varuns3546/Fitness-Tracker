@@ -1,12 +1,13 @@
 import { Image, TouchableOpacity, StyleSheet, Dimensions  } from 'react-native';
 import arrowIcon from '../../assets/arrow-icon.png'
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export default function BackButton({setSelectedPage}) {
   return (
     <TouchableOpacity style={styles.container} onPress={() => {
-        setSelectedPage('dashboard');
+        setSelectedPage('home');
+        console.log('pressed')
     }}>
         <Image source={arrowIcon} style={styles.image}/>
     </TouchableOpacity>
@@ -14,16 +15,17 @@ export default function BackButton({setSelectedPage}) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    flexDirection: 'row',
-    padding: screenWidth*.03,
-
+  container: {    
+    position: 'absolute',
+    top: screenHeight * 0.03, 
+    left: screenWidth * 0.03,
+    padding: 5,  
   },
   image: {
     width: screenWidth*.07, 
-    height: screenWidth*.07,
-    transform: [{scaleX: -1}]
+    height: screenHeight*.07,
+    transform: [{scaleX: -1}],
+    resizeMode: 'contain'
+
   }
 });

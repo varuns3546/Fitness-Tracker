@@ -1,7 +1,7 @@
 import { Image, TouchableOpacity, StyleSheet, Dimensions  } from 'react-native';
 import profileIcon from '../../assets/profile-icon.png'
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth, height: scr } = Dimensions.get('window');
 
 export default function ProfileButton({setSelectedPage}) {
   return (
@@ -16,9 +16,8 @@ export default function ProfileButton({setSelectedPage}) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: '100%',
-    flexDirection: 'row-reverse',
     padding: screenWidth*.03,
+    alignItems: 'flex-end',       
+
   },
 });

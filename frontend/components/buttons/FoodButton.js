@@ -14,16 +14,18 @@ export default function FoodButton({setSelectedPage}) {
   );
 }
 
+const buttonWidth = screenWidth * 0.07 + screenWidth * 0.01 * 2; 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: '100%',
-    padding: screenWidth*.01,
+    position: 'absolute',
+    bottom: screenWidth * 0.005, 
+    left: (screenWidth / 2) - (buttonWidth / 2), 
+    padding: screenWidth * 0.01,
   },
   image: {
-    width: screenWidth*.08, 
-    height: screenHeight*.08,
+    width: screenWidth * 0.07,
+    height: screenHeight * 0.07,
     resizeMode: 'contain',
-
   }
 });

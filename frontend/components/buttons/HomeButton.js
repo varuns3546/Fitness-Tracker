@@ -16,14 +16,14 @@ export default function HomeButton({setSelectedPage}) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: '100%',
-    padding: screenWidth*.01,
+    position: 'absolute',      // absolute positioning
+    bottom: screenWidth * 0.005, // some padding from bottom
+    left: screenWidth * 0.03,   // some padding from left
+    padding: screenWidth * 0.01,
   },
   image: {
-    width: screenWidth*.07, 
-    height: screenHeight*.07,
-    resizeMode: 'contain'
-
+    width: screenWidth * 0.07,
+    height: screenHeight * 0.07,
+    resizeMode: 'contain',
   }
 });
