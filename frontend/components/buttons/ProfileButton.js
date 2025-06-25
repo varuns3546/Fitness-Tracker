@@ -1,11 +1,20 @@
-import { Image, TouchableOpacity, StyleSheet, Dimensions  } from 'react-native';
+import { Image, TouchableOpacity, StyleSheet, useWindowDimensions  } from 'react-native';
 import profileIcon from '../../assets/profile-icon.png'
 
-const { width: screenWidth, height: scr } = Dimensions.get('window');
 
 export default function ProfileButton({setSelectedPage}) {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
+  const styles = StyleSheet.create(
+    {
+      image: {
+        flex: 1,
+        width: screenWidth * 0.1,
+        height: screenHeight * 0.1,
+        resizeMode: 'contain'
+      }
+  })
   return (
-        <TouchableOpacity style={styles.container} onPress={() => {
+        <TouchableOpacity onPress={() => {
             setSelectedPage('profile');
         }}>
             <Image source={profileIcon} style={{ width: screenWidth*.07, height: screenWidth*.07 }} />
@@ -13,11 +22,3 @@ export default function ProfileButton({setSelectedPage}) {
    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: screenWidth*.03,
-    alignItems: 'flex-end',       
-
-  },
-});

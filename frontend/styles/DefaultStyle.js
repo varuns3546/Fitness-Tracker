@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#497a56',
     justifyContent: 'flex-start',  // top vertically
-    salignItems: 'flex-end',  
+    alignItems: 'flex-end',  
     width: '100%',
   },
 });

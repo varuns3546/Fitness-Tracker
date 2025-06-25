@@ -1,11 +1,19 @@
-import { Image, TouchableOpacity, StyleSheet, Dimensions  } from 'react-native';
+import { Image, TouchableOpacity, StyleSheet, useWindowDimensions  } from 'react-native';
 import workoutIcon from '../../assets/workout-icon.png'
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
-
 export default function WorkoutButton({setSelectedPage}) {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
+  const styles = StyleSheet.create(
+    {
+      image: {
+        flex: 1,
+        width: screenWidth * 0.08,
+        height: screenHeight * 0.08,
+        resizeMode: 'contain'
+      }
+  })
   return (
-        <TouchableOpacity style={styles.container} onPress={() => {
+        <TouchableOpacity onPress={() => {
             setSelectedPage('workout_log');
         }}>
             <Image source={workoutIcon} style={styles.image} />
@@ -13,18 +21,3 @@ export default function WorkoutButton({setSelectedPage}) {
    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',      // absolute positioning
-    bottom: screenWidth * -0.01, // some padding from bottom
-    right: screenWidth * 0.03,   // some padding from left
-    padding: screenWidth * 0.01,
-  },
-  image: {
-    width: screenWidth * 0.09,
-    height: screenHeight * 0.09,
-    resizeMode: 'contain',
-  }
-});
-

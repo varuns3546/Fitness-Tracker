@@ -1,11 +1,20 @@
-import { Image, TouchableOpacity, StyleSheet, Dimensions  } from 'react-native';
+import { Image, TouchableOpacity, StyleSheet, useWindowDimensions  } from 'react-native';
 import homeIcon from '../../assets/home-icon.png'
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export default function HomeButton({setSelectedPage}) {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
+  const styles = StyleSheet.create(
+    {
+      image: {
+        flex: 1,
+        width: screenWidth * 0.1,
+        height: screenHeight * 0.1,
+        resizeMode: 'contain'
+      }
+  })
   return (
-        <TouchableOpacity style={styles.container} onPress={() => {
+        <TouchableOpacity onPress={() => {
             setSelectedPage('home');
         }}>
             <Image source={homeIcon} style={styles.image} />
@@ -14,16 +23,3 @@ export default function HomeButton({setSelectedPage}) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',      // absolute positioning
-    bottom: screenWidth * 0.005, // some padding from bottom
-    left: screenWidth * 0.03,   // some padding from left
-    padding: screenWidth * 0.01,
-  },
-  image: {
-    width: screenWidth * 0.07,
-    height: screenHeight * 0.07,
-    resizeMode: 'contain',
-  }
-});
